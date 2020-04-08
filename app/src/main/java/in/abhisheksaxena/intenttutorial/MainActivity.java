@@ -1,4 +1,4 @@
-package in.abhisheksaxena.intentdemo;
+package in.abhisheksaxena.intenttutorial;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
 
     private String username = "Test User";
@@ -20,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private String emailContent = "This is email content.";
 
     Button explicitIntentButton;
+    Button implicitIntentEmailButton;
     Button implicitIntentButton;
 
     @Override
@@ -32,27 +29,27 @@ public class MainActivity extends AppCompatActivity {
         TextView emailTextView = findViewById(R.id.email_textView);
 
         explicitIntentButton = findViewById(R.id.explicit_intent_button);
+        implicitIntentEmailButton = findViewById(R.id.implicit_intent_email_button);
         implicitIntentButton = findViewById(R.id.implicit_intent_button);
 
 
-        nameTextView.setText((getString(R.string.name_label) + " " + username));
-        emailTextView.setText((getString(R.string.email_label) + " " + email));
+        nameTextView.setText(("Name: " + username));
+        emailTextView.setText((("Email: "+ email)));
 
+        //Step 1: Data which is to be sent to another activity (Step 2 & 3 in SecondActivity.java)
         explicitIntentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("name", username);
-                bundle.putString("email", email);
-                intent.putExtra("intent_data", bundle);
+                intent.putExtra("name", username);
+                intent.putExtra("email", email);
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
                 }
             }
         });
 
-        implicitIntentButton.setOnClickListener(new View.OnClickListener() {
+        implicitIntentEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -66,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        implicitIntentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
 
 
     }

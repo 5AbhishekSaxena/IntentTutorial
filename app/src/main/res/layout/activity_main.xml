@@ -28,6 +28,13 @@
         android:text="@string/explicit_intent_label" />
 
     <Button
+        android:id="@+id/implicit_intent_email_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/implicit_intent_email_label" />
+
+    <Button
         android:id="@+id/implicit_intent_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package in.abhisheksaxena.intentdemo;
+package in.abhisheksaxena.intenttutorial;
 
 import android.content.Context;
 

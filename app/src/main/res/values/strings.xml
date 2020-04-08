@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">IntentDemo</string>
-    <string name="name_label">Name:</string>
-    <string name="email_label">Email:</string>
+    <string name="app_name">IntentTutorial</string>
+    <string name="name_label">Name: null</string>
+    <string name="email_label">Email: null</string>
     <string name="second_activity_label">Second Activity</string>
     <string name="explicit_intent_label">Explicit Intent</string>
-    <string name="implicit_intent_label">Implicit Intent (Email Application)</string>
+    <string name="implicit_intent_email_label">Implicit Intent (Email Application)</string>
+    <string name="implicit_intent_label">Implicit Intent (Text Application)</string>
+    <string name="sign_up_label">Sign Up</string>
+    <string name="log_in_label">Log In</string>
 </resources>
